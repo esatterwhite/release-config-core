@@ -18,7 +18,9 @@
     "test": "tap",
     "test:ci": "tap",
     "pretest": "npm run lint",
-    "pretest:ci": "npm run lint"
+    "pretest:ci": "npm run lint",
+    "release": "npx semantic-release",
+    "release:dry": "npm run release -- --no-ci --dry-run --branches=${BRANCH_NAME:-main}"
   },
   "keywords": [
     "semantic-release",
@@ -31,14 +33,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/esatterwhite/semantic-release-tools.git",
-    "directory": "packages/release-config-core"
+    "url": "git+ssh://git@github.com/esatterwhite/release-config-core.git"
   },
   "author": "Eric Satterwhite <esatterwhite@wi.rr.com>",
   "bugs": {
-    "url": "https://github.com/esatterwhite/semantic-release-tools/issues"
+    "url": "https://github.com/esatterwhite/release-config-core/issues"
   },
-  "homepage": "https://github.com/esatterwhite/semantic-release-tools/packages/release-config-core#readme",
+  "homepage": "https://github.com/esatterwhite/release-config-core#readme",
   "license": "MIT",
   "tap": {
     "browser": false,
@@ -58,14 +59,6 @@
       "test/unit"
     ]
   },
-  "dependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^12.0.6",
-    "@semantic-release/npm": "^13.1.5",
-    "@semantic-release/release-notes-generator": "^14.1.0"
-  },
   "devDependencies": {
     "eslint": "^10.1.0",
     "eslint-config-logdna": "^8.0.1",
@@ -73,6 +66,10 @@
     "tap": "^21.6.2"
   },
   "overrides": {
-    "lodash-es": "4.15.0"
+    "lodash-es": "4.17.21"
+  },
+  "dependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1"
   }
 }

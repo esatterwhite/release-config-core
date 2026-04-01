@@ -1,18 +1,18 @@
-import {dirname} from 'node:path'
-import {fileURLToPath} from 'node:url'
-import {defineConfig} from 'eslint/config'
-import logdna from 'eslint-config-logdna'
+'use strict'
 
-export default defineConfig([
+const {defineConfig} = require('eslint/config')
+const logdna = require('eslint-config-logdna')
+
+module.exports = defineConfig([
   {
     'extends': [logdna]
   , 'languageOptions': {
       ecmaVersion: 2022
-    , sourceType: 'module'
+    , sourceType: 'commonjs'
     }
   , 'rules': {
       'sensible/check-require': [2, 'always', {
-        root: dirname(fileURLToPath(import.meta.url))
+        root: __dirname
       }]
     }
   }
